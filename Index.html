@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+  <meta charset="UTF-8">
+
+  <!-- Belangrijk voor iPhone -->
+  <meta
+    name="viewport"
+    content="width=device-width,
+             initial-scale=1.0,
+             maximum-scale=1.0,
+             user-scalable=no"
+  >
+
+  <title>Reptile Breeder Simulator</title>
+</head>
+
+<body>
+
+  <!-- ========================================= -->
+  <!-- HEADER                                    -->
+  <!-- ========================================= -->
+
+  <header id="header">
+
+    <h1>🐍 Reptile Breeder</h1>
+
+    <div id="player-stats">
+
+      <span>
+        💰 Geld:
+        <strong id="money">€1000</strong>
+      </span>
+
+      <span>
+        🐍 Dieren:
+        <strong id="animal-count">2</strong>
+      </span>
+
+      <span>
+        🥚 Eieren:
+        <strong id="egg-count">0</strong>
+      </span>
+
+    </div>
+
+  </header>
+
+
+  <!-- ========================================= -->
+  <!-- NAVIGATIE                                 -->
+  <!-- ========================================= -->
+
+  <nav id="main-navigation">
+
+    <button data-page="home">
+      🏠 Home
+    </button>
+
+    <button data-page="shop">
+      🛒 Shop
+    </button>
+
+    <button data-page="animals">
+      🐍 Dieren
+    </button>
+
+    <button data-page="breeding">
+      🧬 Breeding
+    </button>
+
+    <button data-page="incubator">
+      🥚 Incubator
+    </button>
+
+    <button data-page="market">
+      💰 Market
+    </button>
+
+    <button data-page="collection">
+      📖 Collection
+    </button>
+
+    <button data-page="facility">
+      🏠 Facility
+    </button>
+
+  </nav>
+
+
+  <!-- ========================================= -->
+  <!-- ALLE PAGINA'S                             -->
+  <!-- ========================================= -->
+
+  <main id="game">
+
+
+    <!-- ======================================= -->
+    <!-- HOME                                    -->
+    <!-- ======================================= -->
+
+    <section id="page-home" class="page">
+
+      <h2>🏠 Home</h2>
+
+      <div class="welcome-card">
+
+        <h3>Welkom, Breeder!</h3>
+
+        <p>
+          Bouw je eigen reptielenbedrijf,
+          ontdek zeldzame morphs en maak
+          steeds betere breeding-projecten.
+        </p>
+
+      </div>
+
+
+      <div class="home-stats">
+
+        <div class="stat-card">
+          <span>💰</span>
+          <h3>Geld</h3>
+          <strong id="home-money">€1000</strong>
+        </div>
+
+        <div class="stat-card">
+          <span>🐍</span>
+          <h3>Dieren</h3>
+          <strong id="home-animals">2</strong>
+        </div>
+
+        <div class="stat-card">
+          <span>🥚</span>
+          <h3>Eieren</h3>
+          <strong id="home-eggs">0</strong>
+        </div>
+
+        <div class="stat-card">
+          <span>🧬</span>
+          <h3>Morphs</h3>
+          <strong id="home-morphs">2 / 100</strong>
+        </div>
+
+      </div>
+
+
+      <div class="quick-actions">
+
+        <button data-page="shop">
+          🛒 Naar Shop
+        </button>
+
+        <button data-page="breeding">
+          🧬 Naar Breeding
+        </button>
+
+        <button data-page="incubator">
+          🥚 Bekijk Eieren
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- ======================================= -->
+    <!-- SHOP                                    -->
+    <!-- ======================================= -->
+
+    <section id="page-shop" class="page">
+
+      <h2>🛒 Reptile Shop</h2>
+
+      <p>
+        Koop nieuwe dieren voor je collectie.
+      </p>
+
+      <div
+        id="shop-list"
+        class="card-grid"
+      >
+
+        <!-- JavaScript zet hier dieren -->
+
+      </div>
+
+    </section>
+
+
+    <!-- ======================================= -->
+    <!-- DIEREN                                  -->
+    <!-- ======================================= -->
+
+    <section id="page-animals" class="page">
+
+      <h2>🐍 Mijn Dieren</h2>
+
+      <div class="filter-area">
+
+        <button data-filter="all">
+          Alle
+        </button>
+
+        <button data-filter="snake">
+          🐍 Slangen
+        </button>
+
+        <button data-filter="gecko">
+          🦎 Gecko's
+        </button>
+
+        <button data-filter="frog">
+          🐸 Kikkers
+        </button>
+
+        <button data-filter="turtle">
+          🐢 Schildpadden
+        </button>
+
+      </div>
+
+
+      <div
+        id="animal-list"
+        class="card-grid"
+      >
+
+        <!-- JavaScript zet hier dieren -->
+
+      </div>
+
+    </section>
+
+
+    <!-- ======================================= -->
+    <!-- BREEDING                                -->
+    <!-- ======================================= -->
+
+    <section id="page-breeding" class="page">
+
+      <h2>🧬 Breeding</h2>
+
+      <p>
+        Kies twee dieren om een breeding-project
+        te starten.
+      </p>
+
+
+      <!-- OUDER 1 -->
+
+      <div class="parent-selection">
+
+        <div class="parent-box">
+
+          <h3>♀ Ouder 1</h3>
+
+          <div
+            id="parent-one"
+            class="selected-parent"
+          >
+
+            <p>
+              Nog geen dier geselecteerd
+            </p>
+
+          </div>
+
+          <button id="choose-parent-one">
+            Kies ouder
+          </button>
+
+        </div>
+
+
+        <!-- OUDER 2 -->
+
+        <div class="parent-box">
+
+          <h3>♂ Ouder 2</h3>
+
+          <div
+            id="parent-two"
+            class="selected-parent"
+          >
+
+            <p>
+              Nog geen dier geselecteerd
+            </p>
+
+          </div>
+
+          <button id="choose-parent-two">
+            Kies ouder
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- GENETICA RESULTAAT -->
+
+      <div
+        id="breeding-result"
+        class="breeding-result"
+      >
+
+        <h3>🧬 Mogelijke genetica</h3>
+
+        <p>
+          Selecteer twee dieren.
+        </p>
+
+      </div>
+
+
+      <button
+        id="start-breeding"
+        class="primary-button"
+      >
+
+        🥚 Start Breeding
+
+      </button>
+
+    </section>
+
+
+    <!-- ======================================= -->
+    <!-- INCUBATOR                               -->
+    <!-- ======================================= -->
+
+    <section id="page-incubator" class="page">
+
+      <h2>🥚 Incubators</h2>
+
+
+      <!-- INCUBATOR OVERZICHT -->
+
+      <div
+        id="incubator-list"
+        class="card-grid"
+      >
+
+        <!-- JavaScript zet incubators -->
+
+      </div>
+
+
+      <h3>🥚 Mijn Eieren</h3>
+
+      <div
+        id="egg-list"
+        class="card-grid"
+      >
+
+        <!-- Elk ei afzonderlijk -->
+
+      </div>
+
+    </section>
+
+
+    <!-- ======================================= -->
+    <!-- MARKET                                  -->
+    <!-- ======================================= -->
+
+    <section id="page-market" class="page">
+
+      <h2>💰 Market</h2>
+
+      <p>
+        Verkoop je dieren en verdien geld.
+      </p>
+
+
+      <div
+        id="market-list"
+        class="card-grid"
+      >
+
+        <!-- JavaScript zet verkoopbare dieren -->
+
+      </div>
+
+    </section>
+
+
+    <!-- ======================================= -->
+    <!-- COLLECTION                              -->
+    <!-- ======================================= -->
+
+    <section id="page-collection" class="page">
+
+      <h2>📖 Morph Collection</h2>
+
+      <div class="collection-progress">
+
+        <h3>
+          Ontdekt:
+          <span id="collection-count">
+            2 / 100
+          </span>
+        </h3>
+
+        <div
+          id="collection-progress-bar"
+          class="progress-bar"
+        >
+
+          <div
+            id="collection-progress-fill"
+          ></div>
+
+        </div>
+
+      </div>
+
+
+      <div
+        id="morph-list"
+        class="morph-grid"
+      >
+
+        <!-- 100 morphs komen hier -->
+
+      </div>
+
+    </section>
+
+
+    <!-- ======================================= -->
+    <!-- FACILITY / RACKS                        -->
+    <!-- ======================================= -->
+
+    <section id="page-facility" class="page">
+
+      <h2>🏠 Facility</h2>
+
+
+      <div class="facility-stats">
+
+        <div class="stat-card">
+
+          <span>🐍</span>
+
+          <h3>Rackplaatsen</h3>
+
+          <strong id="rack-space">
+            2 / 5
+          </strong>
+
+        </div>
+
+
+        <div class="stat-card">
+
+          <span>🥚</span>
+
+          <h3>Incubatorplaatsen</h3>
+
+          <strong id="incubator-space">
+            0 / 4
+          </strong>
+
+        </div>
+
+      </div>
+
+
+      <h3>🐍 Racks</h3>
+
+      <div
+        id="rack-list"
+        class="card-grid"
+      >
+
+        <!-- Racks -->
+
+      </div>
+
+
+      <h3>🥚 Incubators</h3>
+
+      <div
+        id="facility-incubator-list"
+        class="card-grid"
+      >
+
+        <!-- Incubators -->
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+  <!-- ========================================= -->
+  <!-- EIER / HATCH MODAL                       -->
+  <!-- ========================================= -->
+
+  <div
+    id="egg-modal"
+    class="modal"
+  >
+
+    <div class="modal-content">
+
+      <button
+        id="close-egg-modal"
+        class="close-button"
+      >
+        ✕
+      </button>
+
+      <div id="egg-result">
+
+        <h2>🥚 Ei openen</h2>
+
+        <p>
+          Wat zit erin?
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ========================================= -->
+  <!-- DIER DETAIL MODAL                        -->
+  <!-- ========================================= -->
+
+  <div
+    id="animal-modal"
+    class="modal"
+  >
+
+    <div class="modal-content">
+
+      <button
+        id="close-animal-modal"
+        class="close-button"
+      >
+        ✕
+      </button>
+
+      <div id="animal-details">
+
+        <!-- Details van dier -->
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ========================================= -->
+  <!-- FOOTER                                   -->
+  <!-- ========================================= -->
+
+  <footer>
+
+    <p>
+      🐍 Reptile Breeder Simulator
+    </p>
+
+    <p>
+      Offline breeding game
+    </p>
+
+  </footer>
+
+
+</body>
+</html>
